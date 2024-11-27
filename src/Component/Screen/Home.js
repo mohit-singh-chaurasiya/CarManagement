@@ -2,14 +2,13 @@ import { Grid2, TextField } from '@mui/material'
 import React from 'react'
 import { BrowserRouter as Router,  Routes,Route, Link } from 'react-router-dom';
 
-import CarList from '../User/CarList'
-
+ 
 import AddData from '../User/AddData'
 import { Update, Widgets } from '@mui/icons-material';
 import NavBar from '../User/Navbar';
-import CarInfo from '../User/CarInfo';
+ import DataList from '../User/DataList';
 import UpdateData from '../User/UpdateData';
-
+import NewsBoard from '../User/NewsBoard'
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -30,6 +29,8 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase'; 
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
+import Smoke from '../assets/smoke.png'
+import '../Screen/Home.css'
 import SearchIcon from '@mui/icons-material/Search';
 const pages = ['AddCar', 'CarList', 'About', 'Logout'];
 const settings = ['AddCar', 'CarList', 'About', 'Logout'];
@@ -90,7 +91,7 @@ export default function Home() {
             <AppBar position="sticky" style={{background:'#22a6b3',color:"#000"}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <img src={Icon} style={{ width: 45, height: 45, marginRight: 10 }} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                    <div   > <img className='smoke'  src={Smoke}    /><img className='car' src={Icon} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}  /></div>
 
                     <Typography
                         variant="h6"
@@ -107,7 +108,7 @@ export default function Home() {
                             textDecoration: 'none',
                         }}
                     >
-                        CarBazar
+                        NEWSSUPERFAST
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -171,14 +172,21 @@ export default function Home() {
                                 onClick={()=>navigate('/home/add')}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                              AddCar
+                              AddData
+                            </Button>
+                            <Button
+                                
+                                onClick={()=>navigate('/home/data')}
+                                sx={{ my: 2, color: 'white', display: 'block' }}
+                            >
+                              OwnData 
                             </Button>
                             <Button
                                 
                                 onClick={()=>navigate('/home/list')}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
-                              CarList  
+                              ApiNews 
                             </Button>
                             {searchBarComponent()}
                     </Box>
@@ -199,13 +207,13 @@ export default function Home() {
         <div>
 
             <NavBar  />
-            <div style={{ background: '#dff9fb', width: '100%', height: 700, display: 'flex', justifyContent: 'center', alignItems: 'center',marginTop:70 }}>
+            <div style={{ background: '#dff9fb', width: '100%', height: 700, display: 'flex', justifyContent: 'center', alignItems: 'center',marginTop:50 }}>
 
-                <div style={{ background: '#dfe6e9 ', width: '80%', height: 'auto' ,marginTop:15}}>
+                <div style={{ background: '#dfe6e9 ', width: '80%', height: 'auto' }}>
                   <Routes>
                   <Route path='/add' element={<AddData/>} />
-                   <Route path={"/list"} element={<CarList />} />
-                   <Route path={"/info"} element={<CarInfo />} />
+                   <Route path={"/list"} element={<NewsBoard />} />
+                   <Route path={"/data"} element={<DataList />} />
                    <Route path={"/update"} element={<UpdateData />} />
 
                   </Routes> 

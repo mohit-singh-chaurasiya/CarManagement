@@ -1,0 +1,46 @@
+.car{
+   
+     width: 48px;
+     height: 48px;
+     margin-right: 10px;
+     margin-top: 10px;
+     position: absolute;
+     animation: leftToRight 18s 0s infinite linear ;
+
+}
+
+.smoke{
+   
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+    margin-left: -5px;
+    margin-top: 12.5px;
+    position: absolute;
+    transform: scaleZ(-1);
+    animation: smokeleftToRight 18s 0s infinite linear ;
+
+}
+
+@keyframes leftToRight{
+    0%{
+        left: -60px;
+    }
+    
+    100%{
+       left: 110%;
+    }
+    
+}
+@keyframes smokeleftToRight{
+    0%{
+        left: -90px;
+    }
+    
+    100%{
+       left: 108%;
+    }
+    
+}
+
+ 
